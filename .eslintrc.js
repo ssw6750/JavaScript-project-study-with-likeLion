@@ -4,7 +4,10 @@ module.exports = {
         "es2021": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+	    	'eslint:recommended',
+	    	'prettier'
+    ],
     "overrides": [
     ],
     "parserOptions": {
@@ -13,4 +16,6 @@ module.exports = {
     },
     "rules": {
     }
+    
 }
+

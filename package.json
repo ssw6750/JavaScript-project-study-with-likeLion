@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "npx live-server client public --port=5500 --no-browser"
+  },
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "live-server": "^1.2.2",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.1"
+  }
+}
