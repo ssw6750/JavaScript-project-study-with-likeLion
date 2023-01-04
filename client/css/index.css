@@ -1,0 +1,17 @@
+body {
+  color: salmon;
+  background: #000;
+  margin: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  flex-flow: column nowrap;
+}
+
+.clock {
+  font-size: 46px;
+}
