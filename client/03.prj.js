@@ -7,23 +7,27 @@ let imgs = [
   {url:"./assets/img06.jpg"},
 ]
 
+const numberOfImagesInCarousel = 3;
+const imgWidth = 500;
+const carouselGap = 10;
+const carouselSpace = imgWidth+carouselGap;
 const carousel_imgs = document.querySelector('.carousel_imgs')
 const container = document.querySelector('.container')
 const carousel__left_btn = document.querySelector('.carousel__left_btn')
 const carousel__right_btn = document.querySelector('.carousel__right_btn')
 
-
+// 화살표함수는 호이스팅이 발생하지 않음
 const checkIndex = () => {
-
+  carousel_imgs.style.left = `${-carouselSpace*(container.dataset.index)}px`
   if (+container.dataset.index === 0) {
     carousel__left_btn.style.display='none'
     carousel__right_btn.style.display='flex'
   }
-  if (+container.dataset.index === imgs.length-3){
+  if (+container.dataset.index === imgs.length-numberOfImagesInCarousel){
     carousel__right_btn.style.display='none'
     carousel__left_btn.style.display='flex'
   }
-  if (0<+container.dataset.index&&+container.dataset.index< imgs.length-3){
+  if (0<+container.dataset.index&&+container.dataset.index< imgs.length-numberOfImagesInCarousel){
     carousel__left_btn.style.display='flex'
     carousel__right_btn.style.display='flex'
   }
@@ -32,7 +36,7 @@ const checkIndex = () => {
 //너무 직접적으로 할당하는 느낌... 태그내에서 dataset 선언은 더블쿼토 필요...왜와이
 // 인덱스가 스트링이로 입력됨
 container.dataset.index=0
-carousel_imgs.style.left = -520*(container.dataset.index)
+carousel_imgs.style.left = -carouselSpace*(container.dataset.index)
 checkIndex()
 
 
@@ -45,6 +49,7 @@ imgs.map(({url}, index)=>{
   carousel_imgs.insertAdjacentElement("beforeend", img_tmp)
 })
 
+
 const click_handler = (e) => {
   let target = e.target
 
@@ -56,15 +61,12 @@ const click_handler = (e) => {
     target=target.parentNode;
   }
 
-  
   if (target.dataset.name==='carousel__left_btn') {
     container.dataset.index=+(container.dataset.index)-1
-    carousel_imgs.style.left = `${-510*(container.dataset.index)}px`
     checkIndex()
   }
   if (target.dataset.name==='carousel__right_btn') {
     container.dataset.index=+(container.dataset.index)+1
-    carousel_imgs.style.left = `${-510*(container.dataset.index)}px`
     checkIndex()
   }
   if (target.dataset.name==='carousel_img') {
@@ -86,43 +88,25 @@ const mousedown_handler = (e) => {
   }
 
   if (target.dataset.name === 'carousel_img') {
-    console.log('aaa')
     carousel_imgs.className='carousel_transition'
     container.dataset.offset = e.clientX
     container.dataset.leftValue= parseInt(carousel_imgs.style.left)
     document.body.addEventListener("mousemove", mousemove_handler)
-  
   }
-
 }
 
 const mouseup_handler = (e) => {
   carousel_imgs.className='carousel_imgs'
   if (parseInt(carousel_imgs.style.left) > 0) {;
     container.dataset.index=0
-  } else if (parseInt(carousel_imgs.style.left) < -510*(imgs.length-3)) {
-    container.dataset.index=(imgs.length-3)
+  } else if (parseInt(carousel_imgs.style.left) < -carouselSpace*(imgs.length-numberOfImagesInCarousel)) {
+    container.dataset.index=(imgs.length-numberOfImagesInCarousel)
   } else {
-    container.dataset.index=Math.round(parseInt(carousel_imgs.style.left)/-510)
+    container.dataset.index=Math.round(parseInt(carousel_imgs.style.left)/-carouselSpace)
   }
-  carousel_imgs.style.left = `${-510*(container.dataset.index)}px`
   checkIndex()
   document.body.removeEventListener("mousemove", mousemove_handler)
 
-}
-
-const mouseout_handler = (e) => {
-  carousel_imgs.className='carousel_imgs'
-  if (parseInt(carousel_imgs.style.left) > 0) {;
-    container.dataset.index=0
-  } else if (parseInt(carousel_imgs.style.left) < -510*(imgs.length-3)) {
-    container.dataset.index=(imgs.length-3)
-  } else {
-    container.dataset.index=Math.round(parseInt(carousel_imgs.style.left)/-510)
-  }
-  carousel_imgs.style.left = `${-510*(container.dataset.index)}px`
-  checkIndex()
-  document.body.removeEventListener("mousemove", mousemove_handler)
 }
 
 const mousemove_handler = (e) => {
@@ -135,6 +119,6 @@ const mousemove_handler = (e) => {
 document.body.addEventListener("click", click_handler)
 document.body.addEventListener("mousedown", mousedown_handler)
 document.body.addEventListener("mouseup", mouseup_handler)
-document.body.addEventListener("mouseleave", mouseout_handler)
+document.body.addEventListener("mouseleave", mouseup_handler)
 
 // 이벤트가 자기 자신을 해체할 수 있나..?
