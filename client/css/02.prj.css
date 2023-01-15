@@ -25,10 +25,28 @@ body {
 .img_box {
   width: 400px;
   height: 240px;
-  background:  no-repeat 50% 50% / cover;
+  background:  no-repeat 50% 50% / 100%;
+  transition: all 400ms;
+  border-radius: 4px;
+}
+
+.img_box:hover {
+  cursor: pointer;
+  background-size: 120%;
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .light_box{
+  border-radius: 4px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -39,6 +57,8 @@ body {
   display: none;
   padding: 60px 10px 10px 10px;
   z-index: 200;
+
+  animation: fadein 200ms ease-out forwards;
 }
 
 .light_box__img {
@@ -47,6 +67,7 @@ body {
   background: no-repeat 50% 50% / cover;
   position: relative;
 }
+
 
 .light_box__index {
   position: absolute;
@@ -62,26 +83,43 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: salmon;
-  width: 60px;
-  height: 60px;
+  background: rgba(0, 0, 0, 0.2);;
+  width: 50px;
+  height: 50px;
   left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+  font-size: 16px;
 }
 
 .light_box__right_btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: salmon;
-  width: 60px;
-  height: 60px;
+  background: rgba(0, 0, 0, 0.2);;
+  width: 50px;
+  height: 50px;
   right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.arrow_mark{
+  color: #fff;
+  transition: all 100ms;
+}
+
+.light_box__close:hover,
+.light_box__left_btn:hover,
+.light_box__right_btn:hover {
+  cursor: pointer;
+  font-size: 24px;
+  
 }
 
 .light_box__close {
@@ -94,10 +132,12 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #ece9e9;
+  font-size: 16px;
+  transition: all 100ms;
 }
 
 .close_mark {
-  font-size: 22px;
+  transition: all 100ms;
 }
 
 .dark_filtering {
@@ -106,4 +146,5 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 100;
+  transition: all 400ms;
 }
