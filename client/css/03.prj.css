@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: #333f4f;
+  background: #14213d;
 }
 
 .container{
@@ -20,8 +20,6 @@ body {
 }
 
 .carousel_wrapper{
-  width: 1520px;
-  height: 400px;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
