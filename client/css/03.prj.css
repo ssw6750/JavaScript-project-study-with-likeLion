@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #212121;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: #333f4f;
+}
+
+.container{
+  position: relative;
+}
+
+.carousel_wrapper{
+  width: 1520px;
+  height: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.transition_event{
+  width: 100%;
+  height: 1%;
+  background: salmon;
+  z-index: -10;
+  display: flex;
+}
+
+.carousel_imgs{
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  position: absolute;
+  left: 0;
+  transition: all 400ms; 
+}
+
+.carousel_transition {
+  width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    position: absolute;
+    left: 0;
+  transition: all 0;
+}
+
+.carousel_img{
+  background: seashell no-repeat 50% 50%/cover;
+  width: 500px;
+  height: 100%;
+}
+
+.carousel__left_btn{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.carousel__right_btn{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
