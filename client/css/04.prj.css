@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #212121;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: #634aec;
+}
+
+.searchForm{
+  position: relative;
+  width: 480px;
+  height: 60px;
+  line-height: 60px;
+}
+
+.searchBar{
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  padding: 12px;
+  color: #000;
+  font-weight: 500;
+}
+
+.searchBar-border {
+  border-radius: 4px 4px 0 0;
+}
+.searchBar:focus{
+  outline: none;
+}
+
+.searchButton {
+  background-color: #fff;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.searchIcon{
+  font-size: 20px;
+  color: #634aec;
+}
+
+.autoComplete{
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  transform: translateY(60px);
+  background: #fff;
+  border-radius: 0px 0px 4px 4px;
+  display: none;
+}
+
+.autoCompleteWord{
+  border: none;
+  width: 100%;
+  height: 60px;
+  font-size: 20px;
+  padding: 4px;
+  padding-left: 12px;
+  color: rgb(53, 51, 51);
+  font-weight: 400;
+  background-color: #fff;
+  line-height: 60px;
+}
+
+.autoCompleteWord:hover {
+  cursor: pointer;
+  background-color: #e8e6e6;
+}
+
+.autoCompleteWord:last-child{
+  border-radius: 0 0 4px 4px;
+}
+
