@@ -8,9 +8,9 @@ let imgs = [
 ]
 
 const numberOfImagesInCarousel = 3;
-const imgWidth = 500;
-const imgHeight = 400;
-const carouselGap = 30;
+const imgWidth = 300;
+const imgHeight = 500;
+const carouselGap = 20;
 const carouselSpace = imgWidth+carouselGap;
 const carousel_imgs = document.querySelector('.carousel_imgs')
 const container = document.querySelector('.container')
@@ -58,6 +58,7 @@ imgs.map(({url}, index)=>{
 
 
 const click_handler = (e) => {
+  console.log("test");
   let target = e.target
 
   while(!(target.getAttribute('data-name'))){
@@ -76,6 +77,7 @@ const click_handler = (e) => {
     container.dataset.index=+(container.dataset.index)+1
     checkIndex()
   }
+  
 }
 
 const mousedown_handler = (e) => {
@@ -119,7 +121,14 @@ const mousemove_handler = (e) => {
   carousel_imgs.style.left = `${(container.dataset.leftValue - (container.dataset.offset-e.clientX))}px`
 }
 
+// carousel__left_btn.addEventListener("click",(e) => {
+//   console.log("btn click");
+// })
 
+// carousel__right_btn.addEventListener("click",(e) => {
+//   e.stopPropagation()
+//   console.log("btn click");
+// })
 
 document.body.addEventListener("click", click_handler)
 document.body.addEventListener("mousedown", mousedown_handler)
