@@ -58,7 +58,7 @@ imgs.map(({url}, index)=>{
 
 
 const click_handler = (e) => {
-  console.log("test");
+  console.log(e);
   let target = e.target
 
   while(!(target.getAttribute('data-name'))){
@@ -70,14 +70,14 @@ const click_handler = (e) => {
   }
 
   if (target.dataset.name==='carousel__left_btn') {
-    container.dataset.index=+(container.dataset.index)-1
+    container.dataset.index=+(container.dataset.index)-3
     checkIndex()
   }
   if (target.dataset.name==='carousel__right_btn') {
-    container.dataset.index=+(container.dataset.index)+1
+    container.dataset.index=+(container.dataset.index)+3
     checkIndex()
   }
-  
+
 }
 
 const mousedown_handler = (e) => {
@@ -131,6 +131,23 @@ const mousemove_handler = (e) => {
 // })
 
 document.body.addEventListener("click", click_handler)
+
+// function click_handlerL (e) {
+//   container.dataset.index=+(container.dataset.index)-1
+//     checkIndex()
+// }
+
+// function click_handlerR (e) {
+//   container.dataset.index=+(container.dataset.index)+1
+//     checkIndex()
+// }
+
+
+// carousel__left_btn.addEventListener("click", click_handlerL)
+// carousel__right_btn.addEventListener("click", click_handlerR)
+
+
+
 document.body.addEventListener("mousedown", mousedown_handler)
 document.body.addEventListener("mouseup", mouseup_handler)
 document.body.addEventListener("mouseleave", mouseup_handler)
@@ -139,3 +156,11 @@ document.body.addEventListener("mouseleave", mouseup_handler)
 // scrollleft ?
 //let outer = gallery.getBoundingClientRect();
 //let inner = carousel.getBoundingClientRect();
+
+
+
+// 쿼리셀렉터로 돔객체를 가져온다
+// 이벤트리스너로 함수와 이벤트를 설정한다
+// 함수를 작성한다
+
+// -> 해당하는 돔객체에 이벤트가 발생했을떄 작성한 함수가 실행된다
