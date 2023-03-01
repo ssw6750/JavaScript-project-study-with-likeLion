@@ -54,6 +54,10 @@ body {
   border: none;
 }
 
+.searchButton:hover{
+  cursor: pointer;
+}
+
 .searchIcon{
   font-size: 20px;
   color: #634aec;
